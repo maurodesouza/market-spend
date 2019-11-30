@@ -52,4 +52,12 @@ const vm = new Vue({
       });
     },
   },
+  watch: {
+    allSpending() {
+      window.localStorage.allSpending = JSON.stringify(this.allSpending);
+    },
+  },
+  created() {
+    this.allSpending = JSON.parse(window.localStorage.allSpending);
+  }
 });
