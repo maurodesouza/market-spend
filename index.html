@@ -7,12 +7,28 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title> Market Spend </title>
 
-  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
   <section id="app">
 
+    <div>
+      <div>
+        <form @submit.prevent="putSpendIntoAllSpending">
+          <input type="number" name="spent" id="spent" v-model.lazy="spent">
+        </form>
+        <button @click="clearAllSpending" > Clear All </button>
+      </div>
+    </div>
+
+    <div>
+      <ul>
+        <li v-for="(value, index) in allSpending" :key="index"> 
+          <p> {{ value }} <span @click="excludePrice( index )"> x </span></p>
+        </li>
+      </ul>
+      <p></p>
+    </div>
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
