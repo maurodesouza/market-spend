@@ -19,4 +19,13 @@ const vm = new Vue({
       this.allSpending = [];
     }
   },
+  filters: {
+    priceInReal(value) {
+      value = Number(value);
+      return value.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      })
+    }
+  }
 });

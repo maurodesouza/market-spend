@@ -24,7 +24,7 @@
     <div>
       <ul>
         <li v-for="(value, index) in allSpending" :key="index"> 
-          <p> {{ value }} <span @click="excludePrice( index )"> x </span></p>
+          <p> {{ value | priceInReal }} <span @click="excludePrice( index )"> x </span></p>
         </li>
       </ul>
       <p></p>
