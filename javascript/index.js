@@ -4,6 +4,14 @@ const vm = new Vue({
     spent: '',
     allSpending: [],
   },
+  computed: {
+    totalSpend() {
+      return total = this.allSpending.reduce((total, value) => {
+        value = Number(value);
+        return total + value;
+      }, 0);
+    },
+  },
   methods: {
     putSpentIntoAllSpending() {
       this.spent = this.spent.replace(/\D/g, '').replace(/(\d{2}$)/, '.$1');
