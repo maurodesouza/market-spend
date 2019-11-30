@@ -17,7 +17,22 @@ const vm = new Vue({
     },
     clearAllSpending() {
       this.allSpending = [];
-    }
+    },
+    formatValueInputToCurrency() {
+      let inputValue = this.spent;
+
+      inputValue = inputValue.replace(/\D/g, '');
+
+      if (inputValue.length == 1) 
+        inputValue = ('0' + inputValue);
+
+      inputValue = inputValue.replace(/(\d{2}$)/, '.$1');
+
+      this.spent = Number(`${inputValue}`).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      });
+    },
   },
   filters: {
     priceInReal(value) {
@@ -25,7 +40,7 @@ const vm = new Vue({
       return value.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-      })
-    }
-  }
+      });
+    },
+  },
 });

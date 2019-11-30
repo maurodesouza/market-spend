@@ -15,7 +15,7 @@
     <div>
       <div>
         <form @submit.prevent="putSpendIntoAllSpending">
-          <input type="number" name="spent" id="spent" v-model.lazy="spent">
+          <input type="text" name="spent" id="spent" v-model="spent" @keyup="formatValueInputToCurrency" placeholder="R$ 0,00" >
         </form>
         <button @click="clearAllSpending" > Clear All </button>
       </div>
