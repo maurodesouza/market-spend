@@ -5,9 +5,10 @@ const vm = new Vue({
     allSpending: [],
   },
   methods: {
-    putSpendIntoAllSpending() {
+    putSpentIntoAllSpending() {
+      this.spent = this.spent.replace(/\D/g, '').replace(/(\d{2}$)/, '.$1');
 
-      if (this.spent == '') return;
+      if (this.spent == '' || this.spent == '0.00') return;
 
       this.allSpending.push(this.spent);
       this.spent = '';
