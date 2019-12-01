@@ -14,22 +14,25 @@
 <body>
   <section id="app">
 
-    <div>
-      <div>
+    <div class="container_left">
+      <div class="box_input">
         <form @submit.prevent="putSpentIntoAllSpending">
-          <input type="text" name="spent" id="spent" v-model="spent" @keyup="formatValueInputToCurrency" placeholder="R$ 0,00" >
+          <input class="input_spent" type="text" name="spent" id="spent" v-model="spent" @keyup="formatValueInputToCurrency" placeholder="R$ 0,00" >
         </form>
-        <button @click="clearAllSpending" > Clear All </button>
+        <button class="btn_clear_all" @click="clearAllSpending" > Clear All </button>
       </div>
     </div>
 
-    <div>
-      <ul>
+    <div class="container_rigth">
+      <ul class="list_of_allspending">
         <li v-for="(value, index) in allSpending" :key="index"> 
-          <p> {{ value | priceInReal }} <span @click="excludePrice( index )"> x </span></p>
+          <div class="each_spent">
+            <p class="each_value"> {{ value | priceInReal }} </p>
+            <span class="btn_delete" @click="excludePrice( index )"> x </span>
+          </div>
         </li>
       </ul>
-      <p> {{ totalSpend | priceInReal }} </p>
+      <p class="total_spend"> {{ totalSpend | priceInReal }} </p>
     </div>
   </section>
 
