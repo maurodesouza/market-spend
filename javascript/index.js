@@ -59,5 +59,5 @@ const vm = new Vue({
   },
   created() {
     this.allSpending = JSON.parse(window.localStorage.allSpending);
-  }
+  },
 });
