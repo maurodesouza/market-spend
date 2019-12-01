@@ -18,7 +18,7 @@ const vm = new Vue({
 
       if (this.spent == '' || this.spent == '0.00') return;
 
-      this.allSpending.push(this.spent);
+      this.allSpending.unshift(this.spent);
       this.spent = '';
     },
     excludePrice(index) {
